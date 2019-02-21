@@ -29,19 +29,49 @@ public class Director extends Employee{
 		// hämta en directors salary
 		
 		/** Varför samma method som gör samma sak i director o worker??? varför inte i Employee */
-		
+
+		// sortera BYNAME, BYSALARY, BYTAXES
 		double aDirectorsSalary = aDirector.getSalary();
-		int a = 0; // if(this.getSalary() == aDirectorsSalary)
+		double aDirectorsTax = aDirector.computeTaxes();
+		int a = 0; 
 		
-		if(this.getSalary() < aDirectorsSalary) {
-			a = 1;
+		int comparingNames = this.secondName.compareTo(aDirector.secondName);
+		
+		if (Employee.sortCriterion == Employee.BYNAME) {
+			a = comparingNames;
 		}
 		
 		
-		if(this.getSalary() > aDirectorsSalary) {
-			a = -1;
+		if(Employee.sortCriterion == Employee.BYSALARY) {
+			if(this.getSalary() == aDirectorsSalary) {
+				a =0;
+			}
+			
+			if(this.getSalary() < aDirectorsSalary) {
+				a = 1;
+			}
+			
+			if(this.getSalary() > aDirectorsSalary) {
+				a = -1;
+			}
 		}
 
+		
+		
+		if(Employee.sortCriterion == Employee.BYTAXES) {
+			if(this.computeTaxes() == aDirectorsTax) {
+				a =0;
+			}
+			
+			if(this.computeTaxes() < aDirectorsTax) {
+				a = 1;
+			}
+			
+			if(this.computeTaxes() > aDirectorsTax) {
+				a = -1;
+			}
+		}
+		
 		return a;
 	}
 	

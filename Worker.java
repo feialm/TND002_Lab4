@@ -16,19 +16,46 @@ public class Worker extends Employee{
 	}
 	
 	public int compareTo(Employee aWorker) {
-		
 		// hämta en workers salary
-		
+		// sortera BYNAME, BYSALARY, BYTAXES
 		double aWorkersSalary = aWorker.getSalary();
-		int a = 0; // if(this.getSalary() == aWorkersSalary)
+		double aWorkersTax = aWorker.computeTaxes();
+		int a = 0; 
 		
-		if(this.getSalary() < aWorkersSalary) {
-			a = 1;
+		int comparingNames = this.secondName.compareTo(aWorker.secondName);
+		
+		if (Employee.sortCriterion == Employee.BYNAME) {
+			a = comparingNames;
 		}
 		
 		
-		if(this.getSalary() > aWorkersSalary) {
-			a = -1;
+		if(Employee.sortCriterion == Employee.BYSALARY) {
+			if(this.getSalary() == aWorkersSalary) {
+				a =0;
+			}
+			
+			if(this.getSalary() < aWorkersSalary) {
+				a = 1;
+			}
+			
+			if(this.getSalary() > aWorkersSalary) {
+				a = -1;
+			}
+		}
+		
+		
+		if(Employee.sortCriterion == Employee.BYTAXES) {
+			if(this.computeTaxes() == aWorkersTax) {
+				a =0;
+			}
+			
+			if(this.computeTaxes() < aWorkersTax) {
+				a = 1;
+			}
+			
+			if(this.computeTaxes() > aWorkersTax) {
+				a = -1;
+			}
 		}
 
 		return a;

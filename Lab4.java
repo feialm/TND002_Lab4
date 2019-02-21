@@ -31,7 +31,12 @@ public class Lab4 {
 		//BYNAME = 0, BYSALARY = 1, BYTAXES = 2.
 		
 		//This is the code for part B.
+		
+		System.out.println("Sort by name (enter 0), sort by salary (1), sort by taxes (2)");
+		
+	
 		// Employee.changeCriterion(Employee.BYTAXES);
-		// System.out.println(theCompany);	
+		System.out.println(theCompany);
+		// skriva ut företaget, directorsm workers, det är typ theCompany.toString, Java vet det redan
 	}
 }

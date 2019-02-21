@@ -47,7 +47,7 @@ public abstract class Employee extends Object implements Comparable <Employee>{
 	public abstract double computeTaxes();
 	
 	public String getName() {	
-		return secondName;
+		return firstName + secondName;
 	}
 	
 	
@@ -64,24 +64,20 @@ public abstract class Employee extends Object implements Comparable <Employee>{
 		// firstname, second, employee number ska alltid vara med i return
 		// sedan kan man lägga till mera beroende på vilken  sorteringstyp man vill ha
 		
-		String result= String.format( "%-11s%-12c%-12s%-12c%-17s%-8d", "Firstname: ", firstName, "Second name: ", secondName, "Employee Number: ", employeeNumber);
+		String result= String.format( "%-15s%-15s%-10d", firstName, secondName, employeeNumber);
 		
 		if (sortCriterion == BYSALARY) {
 			// här lägger till salary till string
-			result = result + String.format("%-8s%-8f" ,"Salary: ", salary) ;
+			result = result + String.format("%-8f" ,salary) ;
 		}
 		
 		
 		if(sortCriterion == BYTAXES){
 			// här lägger till salary OCH taxes till string
 			
-			double tax = computeTaxes(); //hämtar tax från director eller worker, fungerar för båda
+			// double tax = computeTaxes(); //hämtar tax från director eller worker, fungerar för båda
 			
-			// -------------- skriv klart --------------- strängen ----------------
-			
-			result = result + String.format("%-8s%-8f" ,"Salary: ", salary);
-			
-			
+			result = result + String.format("%-8f%-8f" ,salary,  computeTaxes());
 		}
 		
 		return result;

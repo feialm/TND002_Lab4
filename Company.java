@@ -1,6 +1,6 @@
 package lab4;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Company extends Object{
 	
@@ -13,8 +13,6 @@ public class Company extends Object{
 		// slapar nytt objekt (arraylista) som ska innehålla Employee-objekt
 		theCompanyList = new ArrayList<Employee>();
 	}
-	
-	
 	
 	public void addEmployee(Director directorWillBeAdded) {
 		// This instance method adds a director to the dynamic array of employees.
@@ -40,7 +38,36 @@ public class Company extends Object{
 	
 	public String toString() {
 		
-		return " ";
+		String title = "List of Employees" + "\n------------------------";
+		String result = "";
+		String Employees = "";
+		
+		if(Employee.sortCriterion == Employee.BYNAME) {
+			result = "First name    " + "Surname   " + "Number";
+		}
+			
+		if(Employee.sortCriterion == Employee.BYSALARY){
+			result = "First name    " + "Surname   " + "Number   " + "Salary";
+		}
+	
+		
+		if(Employee.sortCriterion == Employee.BYTAXES) {
+			result = "First name    " + "Surname   " + "Number   " + "Taxes";
+		}
+
+		// hämtar Collections.sort med import java.util.*;
+		// sorterar
+		// sort metoden anropar compareTo och får svar på vad den ska sortera och hur
+		Collections.sort(theCompanyList);
+		
+		// hämtar och skriver ut employee-listan
+		for(int i = 0; i < theCompanyList.size(); i++ ) {
+			Employees = "\n" + theCompanyList.get(i).toString();
+		}
+		
+		
+		title += result + Employees;
+		return title;
 	}
 	
 }
