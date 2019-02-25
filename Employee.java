@@ -30,7 +30,7 @@ public abstract class Employee extends Object implements Comparable <Employee>{
 	public static void changeCriterion(int sortingOption) {
 		
 		
-		if (sortingOption != BYNAME || sortingOption != BYSALARY  || sortingOption != BYTAXES) {
+		if (sortingOption != BYNAME && sortingOption != BYSALARY  && sortingOption != BYTAXES) {
 			
 			System.out.println("Option doesn't exist!");
 		} 
@@ -77,7 +77,7 @@ public abstract class Employee extends Object implements Comparable <Employee>{
 			
 			// double tax = computeTaxes(); //hämtar tax från director eller worker, fungerar för båda
 			
-			result = result + String.format("%-8f%-8f" ,salary,  computeTaxes());
+			result = result + String.format("%-8f" , computeTaxes());
 		}
 		
 		return result;

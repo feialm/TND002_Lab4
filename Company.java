@@ -10,7 +10,7 @@ public class Company extends Object{
 	
 	public Company() {
 		
-		// slapar nytt objekt (arraylista) som ska innehålla Employee-objekt
+		// skapar nytt objekt (arraylista) som ska innehålla Employee-objekt
 		theCompanyList = new ArrayList<Employee>();
 	}
 	
@@ -25,7 +25,6 @@ public class Company extends Object{
 		
 		// en chef och hans arbetare till listan
 		
-		theCompanyList.add(theDirector);
 		theCompanyList.add(aWorker);
 	
 		// kopllar ihop worker och chef
@@ -43,16 +42,16 @@ public class Company extends Object{
 		String Employees = "";
 		
 		if(Employee.sortCriterion == Employee.BYNAME) {
-			result = "First name    " + "Surname   " + "Number";
+			result = "\nFirst name    " + "Surname   " + "Number";
 		}
 			
 		if(Employee.sortCriterion == Employee.BYSALARY){
-			result = "First name    " + "Surname   " + "Number   " + "Salary";
+			result = "\nFirst name    " + "Surname   " + "Number   " + "      Salary";
 		}
 	
 		
 		if(Employee.sortCriterion == Employee.BYTAXES) {
-			result = "First name    " + "Surname   " + "Number   " + "Taxes";
+			result = "\nFirst name    " + "Surname   " + "Number   " + "      Taxes";
 		}
 
 		// hämtar Collections.sort med import java.util.*;
@@ -62,7 +61,7 @@ public class Company extends Object{
 		
 		// hämtar och skriver ut employee-listan
 		for(int i = 0; i < theCompanyList.size(); i++ ) {
-			Employees = "\n" + theCompanyList.get(i).toString();
+			Employees += "\n" + theCompanyList.get(i).toString();
 		}
 		
 		

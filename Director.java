@@ -12,6 +12,7 @@ public class Director extends Employee{
 	public Director (String firstName, String secondName, int eNumber, double salary) {
 		
 		super(firstName, secondName, eNumber, salary);
+		workersThisDirectorList = new ArrayList<Worker>();
 	}
 	
 	
@@ -82,7 +83,7 @@ public class Director extends Employee{
 		
 		for (int i = 0; i < workersThisDirectorList.size(); i++) {
 			
-			sum_bonus += workersThisDirectorList.get(i).computeTaxes();
+			sum_bonus += workersThisDirectorList.get(i).salary;
 		}
 		
 		sum_bonus= sum_bonus*bonus;

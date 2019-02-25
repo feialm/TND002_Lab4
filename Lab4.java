@@ -1,9 +1,18 @@
+
 package lab4;
-import javax.swing.*;
+import javax.swing.*; // för att dialog window ska vara i programmet, importerar JOptionPane
+import java.io.*; //så att BufferedReader och InputStreamReader ska fungera
+
+
+/**
+ * 
+ * @author Fei Alm
+ *
+ */
 
 public class Lab4 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException{
 		
 		Company theCompany = new Company();
 				
@@ -30,13 +39,56 @@ public class Lab4 {
 		//Here we change the sorting criterium using the class constants of Employee: 
 		//BYNAME = 0, BYSALARY = 1, BYTAXES = 2.
 		
-		//This is the code for part B.
+		/**This is the code for part B. */
 		
-		System.out.println("Sort by name (enter 0), sort by salary (1), sort by taxes (2)");
+		//System.out.println("Sort by name (enter 0), sort by salary (1), sort by taxes (2)");
+
+		do {
+		JOptionPane.showMessageDialog(null, "You want to sort by Surname (1), Salary (2) or paid Taxes (3)?");
 		
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in)); 
+		String text  = in.readLine();	
+		
+		
+		// NumberFormatException gångar det sorterns fel
+		try{
+				int x = Integer.parseInt(text);
+								
+				//Beroende på vilket input, anrop funktion och förbed hur allt ska sorteras
+				if ( x == 1 ) {
+					Employee.changeCriterion(Employee.BYNAME);
+				}
+				else if(x == 2) {
+					Employee.changeCriterion(Employee.BYSALARY);
+				}
+				else if(x == 3) {
+					Employee.changeCriterion(Employee.BYTAXES);
+				}
+				else {
+					throw new Exception("Try again, wrong number!");
+				}
+				
+				
+				//System.out.println(theCompany);
+				JOptionPane.showMessageDialog(null,theCompany);
+				// skriva ut företaget, directors med deras workers, det är typ theCompany.toString, Java vet det redan
+				break;
+			
+		}
+		catch(java.lang.NumberFormatException e) {
+			//System.out.println("Try again, wrong inputformat!");
+			JOptionPane.showMessageDialog(null, "Try again");
+		}
+		catch(Exception e) {
+			
+			JOptionPane.showMessageDialog(null, e.getMessage());
+			// skriver ut från throw new Exception("Wrong type of input!");
+			// om ett fel sker, hämtar den den sortens fel och dess felmeddleande och skriver ut
+			// då skitvs int heller listan ut	
+		}
 	
-		// Employee.changeCriterion(Employee.BYTAXES);
-		System.out.println(theCompany);
-		// skriva ut företaget, directorsm workers, det är typ theCompany.toString, Java vet det redan
+		}while(true);
+	
 	}
-}
+		
+}// måsvinge till klassen lab4
