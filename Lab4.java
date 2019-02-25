@@ -1,14 +1,14 @@
+/**
+ * @author Fei Alm
+ * @version 1.0
+ **/
+
+
 
 package lab4;
 import javax.swing.*; // för att dialog window ska vara i programmet, importerar JOptionPane
 import java.io.*; //så att BufferedReader och InputStreamReader ska fungera
 
-
-/**
- * 
- * @author Fei Alm
- *
- */
 
 public class Lab4 {
 

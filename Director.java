@@ -1,3 +1,9 @@
+/**
+ * @author Fei Alm
+ * @version 1.0
+ */
+
+
 package lab4;
 
 import java.util.ArrayList;
