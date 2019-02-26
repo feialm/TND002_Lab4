@@ -1,32 +1,43 @@
-/**
- * @author Fei Alm
- * @version 1.0
- */
-
-
 package lab4;
+
 
 import java.util.*;
 
+/**
+ * @author Fei Alm
+ * @version 1.0
+ * @since 2019
+ */
 public class Company extends Object{
 	
+
 	// has one dynamic array that stores all employees  (workers and directors)once
 	private ArrayList<Employee> theCompanyList;
 
-	
+
+	/** The constructor takes no argument */
 	public Company() {
 		
 		// skapar nytt objekt (arraylista) som ska innehålla Employee-objekt
 		theCompanyList = new ArrayList<Employee>();
 	}
 	
+	
+	/**
+	 * This instance method adds a director to the dynamic array of employees.
+	 * @param directorWillBeAdded - the argument that is received to this method is of type Director
+	 * */
 	public void addEmployee(Director directorWillBeAdded) {
 		// This instance method adds a director to the dynamic array of employees.
 		theCompanyList.add(directorWillBeAdded);	
 	}
 	
 	
-	
+	/**
+	 * Adds a worker to theCompanyList and add worker to its directors list, theDirector
+	 * @param aWorker - the worker that will be put into the list, type Worker
+	 * @param theDirector - the director that the worker till be connected to
+	 */
 	public void addEmployee(Worker aWorker, Director theDirector) {
 		
 		// en chef och hans arbetare till listan
@@ -40,7 +51,11 @@ public class Company extends Object{
 	}
 
 
-	
+
+	/**
+	 * Takes no argument.
+	 * Displays the list of employees (workers and directors). Different titles for different sorting options
+	 */
 	public String toString() {
 		
 		String title = "List of Employees" + "\n------------------------";

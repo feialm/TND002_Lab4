@@ -1,14 +1,13 @@
+package lab4;
+
+
 /**
  * @author Fei Alm
  * @version 1.0
+ * @since 2019
  */
-
-
-package lab4;
-
 public abstract class Employee extends Object implements Comparable <Employee>{
-	
-	// ska dessa vara här?
+		
 	public static final int BYNAME = 0;
 	public static final int BYSALARY = 1;	
 	public static final int BYTAXES = 2;
@@ -24,6 +23,15 @@ public abstract class Employee extends Object implements Comparable <Employee>{
 	String firstName;
 	
 	
+	/**
+	 * This method receives name, surname, employee number and salary in the arguments.
+	 * The arguments initialize the variables (double) salary, (int) employeeNumber, (String) secondName, (String) firstName;
+	 * 
+	 * @param name1 - type  string
+	 * @param name2 - type string
+	 * @param employeeID - type int
+	 * @param aSalary - type double
+	 */
 	public Employee(String name1, String name2, int employeeID, double aSalary) {
 		
 		firstName = name1;
@@ -33,6 +41,14 @@ public abstract class Employee extends Object implements Comparable <Employee>{
 	
 	}
 	
+	
+	
+	/**
+	 * Change what type of sorting option that is used,
+	 * BYNAME, BYSALARY, BYTAXES
+	 * 
+	 * @param sortingOption - type int, it is the sorting option that the criterion will be changed into
+	 */
 	public static void changeCriterion(int sortingOption) {
 		
 		
@@ -50,13 +66,23 @@ public abstract class Employee extends Object implements Comparable <Employee>{
 	// This instance method returns the taxes paid by the employee
 	// it is implemented in the subclasses, alltså ska INGEN kod skrivas för den här
 	// kod för denna method skrivs i Director och Worker
+	
 	public abstract double computeTaxes();
 	
+	
+	
+	/**
+	 * Returns the name of employee
+	 * @return firstName + secondName
+	 */
 	public String getName() {	
 		return firstName + secondName;
 	}
 	
-	
+	/**
+	 * Returns number of employee
+	 * @return employeeNumber
+	 */
 	public int getNumber() {
 		return employeeNumber;
 	}

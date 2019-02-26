@@ -1,10 +1,11 @@
 
+package lab4;
+
 /**
  * @author Fei Alm
  * @version 1.0
+ * @since 2019
  */
-package lab4;
-
 
 public class Worker extends Employee{
 	

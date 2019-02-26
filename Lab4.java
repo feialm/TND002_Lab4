@@ -1,33 +1,44 @@
-/**
- * @author Fei Alm
- * @version 1.0
- **/
-
-
-
 package lab4;
+
+
 import javax.swing.*; // för att dialog window ska vara i programmet, importerar JOptionPane
 import java.io.*; //så att BufferedReader och InputStreamReader ska fungera
+
+/**
+ * 
+ * Lab4 is the main class.
+ * 
+ * @author Fei Alm
+ * @version 1.0
+ * @since 2019
+ *
+ */
 
 
 public class Lab4 {
 
+	/**
+	 * This method (main) is where input are put into the program and where the output are shown
+	 * @param args - array of type string
+	 * @throws IOException to see if the inputs are correct
+	 */
 	public static void main(String[] args) throws IOException{
 		
 		Company theCompany = new Company();
-				
-		/* Directors are created as objects with an own reference variable because they are added to 
-                 * Workers. The entries in the constructor are the first name, surname, employee number and salary. */
-		
+
+
 		Director director1 = new Director("John", "Smith", 1, 700000.0);
 		Director director2 = new Director("Elaine", "Garret", 2, 670000.0);
 		
 		// We add the directors to the company
+
 		
 		theCompany.addEmployee(director1);theCompany.addEmployee(director2);
 		
-		// We add workers to the company and assign them to a director. 
 		
+		
+		// We add workers to the company and assign them to a director.
+
 		theCompany.addEmployee(new Worker("Paul", "Johnson", 3, 400000.0),director1);
 		theCompany.addEmployee(new Worker("Sarah", "Davidson", 4, 420000.0),director1);
 		theCompany.addEmployee(new Worker("Doris","McClure", 5, 470000.0),director1);
@@ -39,15 +50,17 @@ public class Lab4 {
 		//Here we change the sorting criterium using the class constants of Employee: 
 		//BYNAME = 0, BYSALARY = 1, BYTAXES = 2.
 		
-		/**This is the code for part B. */
+		// This is the code for part B.
 		
 		//System.out.println("Sort by name (enter 0), sort by salary (1), sort by taxes (2)");
 
 		do {
 		JOptionPane.showMessageDialog(null, "You want to sort by Surname (1), Salary (2) or paid Taxes (3)?");
 		
+		
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in)); 
 		String text  = in.readLine();	
+		
 		
 		
 		// NumberFormatException gångar det sorterns fel
@@ -80,6 +93,8 @@ public class Lab4 {
 			JOptionPane.showMessageDialog(null, "Try again");
 		}
 		catch(Exception e) {
+			
+			System.out.println("Try again!");
 			
 			JOptionPane.showMessageDialog(null, e.getMessage());
 			// skriver ut från throw new Exception("Wrong type of input!");
