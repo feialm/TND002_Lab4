@@ -9,11 +9,28 @@ package lab4;
 
 public class Worker extends Employee{
 	
+	/**
+	 * Contructor for class Worker
+	 * The arguments in constructor Worker defines a worker
+	 * 
+	 * 
+	 * @param name1 - name of worker/director, type String
+	 * @param name2 - surname of worker/director, type String
+	 * @param employeeID - employee number, type int 
+	 * @param aSalary - salary for employee, type double
+	 */
 	public Worker(String name1, String name2, int employeeID, double aSalary) {
 		super( name1, name2, employeeID, aSalary);
 		
 	}
 	
+	
+	/**
+	 * Takes no argument
+	 * Calculates a workers tax
+	 * 
+	 * @return sum
+	 */
 	public double computeTaxes() {
 		
 		double taxes = 0.25;
@@ -22,6 +39,10 @@ public class Worker extends Employee{
 		return sum;
 	}
 	
+	
+	/**
+	 * @param aWorker - the director that will be compared with the other directors, type Employee
+	 */
 	public int compareTo(Employee aWorker) {
 		// hämta en workers salary
 		// sortera BYNAME, BYSALARY, BYTAXES

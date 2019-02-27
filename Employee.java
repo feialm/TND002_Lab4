@@ -72,7 +72,7 @@ public abstract class Employee extends Object implements Comparable <Employee>{
 	
 	
 	/**
-	 * Returns the name of employee
+	 * Returns the name of a employee
 	 * @return firstName + secondName
 	 */
 	public String getName() {	
@@ -80,17 +80,25 @@ public abstract class Employee extends Object implements Comparable <Employee>{
 	}
 	
 	/**
-	 * Returns number of employee
+	 * Returns ID-number of a employee
 	 * @return employeeNumber
 	 */
 	public int getNumber() {
 		return employeeNumber;
 	}
 	
+	/**
+	 * Returns the salary of a employee
+	 * @return salary
+	 */
 	public double getSalary() {
 		return salary;
 	}
 	
+	
+	/**
+	 * Writes out information about every employee
+	 */
 	public String toString() {
 		// return information about employee
 		// firstname, second, employee number ska alltid vara med i return

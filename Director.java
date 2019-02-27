@@ -126,6 +126,7 @@ public class Director extends Employee{
 	 * Takes no argument
 	 * Calculates the tax for a director
 	 * 
+	 * @return result
 	 * */
 	
 	public double computeTaxes() {
